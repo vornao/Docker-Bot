@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+    telegram-bot:
+        build: ./telegram-bot
+        ports: 
+            - 5000
+    nginx:
+        depends_on: 
+            - telegram-bot
+        build: ./nginx
+        ports: 
+            - 8443:8443
+        
+    
